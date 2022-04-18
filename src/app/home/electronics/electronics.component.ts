@@ -9,7 +9,7 @@ import { ProductService } from '../../shared/services/product.service';
 })
 export class ElectronicsComponent implements OnInit, OnDestroy {
   
-  public themeLogo: string = 'assets/images/icon/logo-10.png'; // Change Logo
+  public themeLogo: string = 'assets/newlogo.png'; // Change Logo
 
   public products: Product[] = [];
   public productCollections: any[] = [];
