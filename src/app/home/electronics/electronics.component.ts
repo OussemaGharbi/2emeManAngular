@@ -8,7 +8,7 @@ import { ProductService } from '../../shared/services/product.service';
   styleUrls: ['./electronics.component.scss']
 })
 export class ElectronicsComponent implements OnInit, OnDestroy {
-  
+
   public themeLogo: string = 'assets/newlogo.png'; // Change Logo
 
   public products: Product[] = [];
@@ -42,9 +42,17 @@ export class ElectronicsComponent implements OnInit, OnDestroy {
     save: '10% off',
     title: 'best deal'
   }]
+  produits: []
 
   ngOnInit(): void {
     // Change color for this layout
+
+    this.productService.getProduits().subscribe((result) => {
+      console.log(result);
+
+      this.produits = result as []
+      console.log(this.produits);
+    })
   }
 
   ngOnDestroy(): void {

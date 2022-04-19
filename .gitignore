@@ -148,4 +148,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
 .angular/
+=======
+.angular/
+>>>>>>> 2b7ed038868afd4df3099cc721f7eee4e13fecf9
