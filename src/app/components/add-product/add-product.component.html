@@ -64,7 +64,7 @@
         </div>
 
         <!-- second card -->
-        <div class="justify-content-center" >
+        <div class="justify-content-center">
 
             <div class="card bg-light m-3 shadow rounded">
                 <div class="card-header">
@@ -78,23 +78,195 @@
 
                     <div class="card-body">
                         <label for="objet">Objet à vendre</label>
-                        <input type="text" class="form-control" id="objet" formControlName="objet">
+                        <input type="text" class="form-control" id="objet" formControlName="objet" placeholder="Nom d'objet a vendre">
 
                         <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" formControlName="description">
-                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="description" formControlName="description" placeholder="Ajouter une description sur votre article">
+                      
+                        <label for="Genre">Genre</label>
+                        <select  id="Genre" class="form-control" formControlName="genre">
+                            <option value="" disabled selected>Genre</option>
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
+                            <option value="garçon">Fille</option>
+                            <option value="garçon">Garçon</option>
 
-                        <input type="text" class="form-control" id="genre" formControlName="genre">
-                        <br>
-                        <select name="" id="" class="form-control" formControlName="etat">
+                        </select>
+
+                        <label for="etat">Etat</label>
+
+                        <select name="etat" id="etat" class="form-control" formControlName="etat" placeholder="Etat">
+                            <option value="" disabled selected>Etat</option>
                             <option value="Neuf avec étiquette">Neuf avec étiquette</option>
                             <option value="Neuf sans étiquette">Neuf sans étiquette</option>
                             <option value="Trés bon état">Trés bon état</option>
                             <option value="Satisfaisant">Satisfaisant</option>
                         </select>
+
+                        <label for="taille">Taille</label>
+                        <select name="taille" id="taille" class="form-control">
+                            <option value="" disabled selected> Taille</option>
+                            <option value="s">s</option>
+                            <option value="xs">xs</option>
+                            <option value="m">m</option>
+                            <option value="l">l</option>
+                            <option value="xl">xl</option>
+                            <option value="2xl">2xl</option>
+                            <option value="3xl">3xl</option>
+                            <option value="4xl">4xl</option>
+                        </select>
+                        <label for="couleurs">Couleurs</label>
+                        <select name="couleurs" id="couleurs" class="form-control">
+                            <option value=""disabled selected>Couleur</option>
+                            <option value="Argent">Argent</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Banc">Blanc</option>
+                            <option value="Bleu">Bleu</option>
+                            <option value="Bordeaux">Bordeaux</option>
+                            <option value="Camel">Camel</option>
+                            <option value="Corail">Corail</option>
+                            <option value="Doré">Doré</option>
+                            <option value="Gris">Gris</option>
+                            <option value="Jaune">Marron</option>
+                            <option value="Marron">Marron</option>
+                            <option value="Multicolores">Multicolores</option>
+                            <option value="Noir">Noir</option>
+                            <option value="Nude">Nude</option>
+                            <option value="Orange">Orane</option>
+                            <option value="Rose poudré">Rose poudré</option>
+                            <option value="Rouge">Rouge</option>
+                            <option value="Turquoise">Turquoise</option>
+                            <option value="Vert">Vert</option>
+                            <option value="Vert d'eau">Vert d'eau</option>
+                            <option value="Violet">Violet</option>
+                        </select>
                         <button class="btn btn-secondary mt-4" (click)="submit()">
                             Ajouter
                         </button>
+
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div> -->
+            </div>
+        </div>
+        <!-- third card -->
+        <div class="justify-content-center">
+
+            <div class="card bg-light m-3 shadow rounded">
+                <div class="card-header">
+                    <h1>
+                        <i class="fa fa-fw fa-user"> </i>
+                        Informations de contact !
+
+                    </h1>
+                </div>
+                <div class="row justify-content-between" style="margin:100px 100px ">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="telephone">Télèphone:</label>
+
+                            </div>
+                            <div class="col-md-10">
+
+                                <input type="text" class="form-control" id="telephone" placeholder="Votre numéro de télèphone..">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="Email">Email:</label>
+
+                            </div>
+                            <div class="col-md-10">
+
+                                <input type="text" class="form-control" id="Email" placeholder="Ex:Email@gmail.com">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="Adresse">Adresse:</label>
+
+                            </div>
+                            <div class="col-md-10">
+
+                                <input type="text" class="form-control" id="Adresse" placeholder="Numéro et Rue / Avenue / Passage..">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="Adresse">Complément d'adresse:</label>
+
+                            </div>
+                            <div class="col-md-10">
+
+                                <input type="text" class="form-control" id="Complément d'adresse"
+                                    placeholder="Près de / En face de / Chez..">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="Code Postale">Code Postale:</label>
+
+                            </div>
+                            <div class="col-md-10">
+
+                                <input type="text" class="form-control" id="Code Postale" placeholder="Ex:1130">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="Code Postale">Ville:</label>
+
+                            </div>
+                            <div class="col-md-10">
+
+                                <select name="Ville" id="Ville" class="form-control">
+                                    <option value="" disabled selected>Ville</option>
+                                    <option value="Ariena">Ariena</option>
+                                    <option value="Beja">Beja</option>
+                                    <option value="Ben Arous">Ben Arous</option>
+                                    <option value="Bizerte">Bizerte</option>
+                                    <option value="Gabès">Gabès</option>
+                                    <option value="Gafsa">Gafsa</option>
+                                    <option value="Jendouba">Jendouba</option>
+                                    <option value="Kairouan">Kairouan</option>
+                                    <option value="Kasserine">Kasserine</option>
+                                    <option value="Le Kef">Le Kef</option>
+                                    <option value="Mahdia">Mahdia</option>
+                                    <option value="La Manouba">La Manouba</option>
+                                    <option value="Médenine">Médenine</option>
+                                    <option value="Monastir">Monastir</option>
+                                    <option value="Jendouba">Jendouba</option>
+                                    <option value="Nabeul">Nabeul</option>
+                                    <option value="Sfax">Sfax</option>
+                                    <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                    <option value="Siliana">Siliana</option>
+                                    <option value="Sousse">Sousse</option>
+                                    <option value="Tataouine">Tataouine</option>
+                                    <option value="Tozeur">Tozeur</option>
+                                    <option value="Tunis">Tunis</option>
+                                    <option value="Zaghouan">Zaghouan</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
 
 
                     </div>
