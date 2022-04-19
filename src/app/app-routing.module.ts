@@ -6,10 +6,12 @@ import { PagesComponent } from './pages/pages.component';
 import { ElementsComponent } from './elements/elements.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path:'register', component:RegisterComponent},
+  {path:'addproduct', component:AddProductComponent},
 
   {
     path: '',

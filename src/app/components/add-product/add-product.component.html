@@ -1,0 +1,115 @@
+<app-header-one></app-header-one>
+<form [formGroup]="addForm">
+    <div class="card container shadow p-3 mb-5 bg-white rounded" id="card">
+
+        <div class="col-md-12">
+            <div class="row justify-content-center">
+
+                <div class="card bg-light m-3 shadow rounded">
+                    <div class="card-header">
+                        <h1>
+                            <i class="fa fa-fw fa-camera-retro"> </i>
+                            Prends 3 photos !
+
+                        </h1>
+                    </div>
+                    <div class="row justify-content-between" style="margin:80px 80px ">
+
+                        <div class="fileinput col-md-4">
+                            <input type="file" style="display:none" id="image" #input>
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner</label>
+
+
+                        </div>
+                        <div class="fileinput col-md-4">
+                            <input type="file" style="display:none" id="image" #input2>
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input2)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner</label>
+
+
+                        </div>
+                        <div class="fileinput col-md-4">
+                            <input type="file" style="display:none" id="image" #input3>
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input3)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner</label>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div> -->
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- second card -->
+        <div class="justify-content-center" >
+
+            <div class="card bg-light m-3 shadow rounded">
+                <div class="card-header">
+                    <h1>
+                        <i class="fa fa-fw fa-pencil"> </i>
+                        Décrits Ton Article!
+
+                    </h1>
+                </div>
+                <div class="row justify-content-between" style="margin:100px 100px ">
+
+                    <div class="card-body">
+                        <label for="objet">Objet à vendre</label>
+                        <input type="text" class="form-control" id="objet" formControlName="objet">
+
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" formControlName="description">
+                        <label for="genre">Genre</label>
+
+                        <input type="text" class="form-control" id="genre" formControlName="genre">
+                        <br>
+                        <select name="" id="" class="form-control" formControlName="etat">
+                            <option value="Neuf avec étiquette">Neuf avec étiquette</option>
+                            <option value="Neuf sans étiquette">Neuf sans étiquette</option>
+                            <option value="Trés bon état">Trés bon état</option>
+                            <option value="Satisfaisant">Satisfaisant</option>
+                        </select>
+                        <button class="btn btn-secondary mt-4" (click)="submit()">
+                            Ajouter
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div> -->
+            </div>
+        </div>
+
+
+    </div>
+</form>

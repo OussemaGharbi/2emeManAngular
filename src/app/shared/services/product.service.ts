@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, startWith, delay } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../classes/product';
+import { environment } from 'src/environments/environment';
 
 const state = {
   products: JSON.parse(localStorage['products'] || '[]'),
@@ -17,9 +18,11 @@ const state = {
 })
 export class ProductService {
 
+  public productApi = environment.apiUrl +  '/api/product'
   public Currency = { name: 'Dollar', currency: 'USD', price: 1 } // Default Currency
   public OpenCart: boolean = false;
   public Products
+  public produits
 
   constructor(private http: HttpClient,
     private toastrService: ToastrService) { }
@@ -30,6 +33,13 @@ export class ProductService {
     ---------------------------------------------
   */
 
+
+
+ //get all products 
+ public getProduits(){
+   return this.http.get(this.productApi + '/')
+ }
+
   // Product
   private get products(): Observable<Product[]> {
     this.Products = this.http.get<Product[]>('assets/data/products.json').pipe(map(data => data));
@@ -37,7 +47,6 @@ export class ProductService {
     return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
   }
 
-  // Get Products
   public get getProducts(): Observable<Product[]> {
     return this.products;
   }
