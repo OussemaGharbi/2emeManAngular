@@ -13,20 +13,66 @@
 
                         </h1>
                     </div>
+                    <!-- 1 -->
                     <div class="row justify-content-between" style="margin:80px 80px ">
 
-                        <div class="fileinput col-md-4">
-                            <input type="file" style="display:none" id="image" #input>
+                        <div class="fileinput col-md-4" *ngIf="!imagePreview">
+                            <input type="file" style="display:none" id="image" #input (change)="showImage(input)" >
 
                             <h1>
                                 <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input)"> </i>
 
                             </h1>
-                            <label for="image">clicker pour selectionner</label>
+                            <label for="image">clicker pour selectionner<small style="color:red"> Obligatoire!</small></label>
+                          
+                        </div>
+                        <div class=" col-md-4" *ngIf="imagePreview">
+                            <a class="close s" (click)="deleteImage1()">&times;</a>
+
+                            <img src="{{ imagePreview }}" class="image shadow" alt="" *ngIf="imagePreview">
 
 
                         </div>
-                        <div class="fileinput col-md-4">
+                        <!-- 2 -->
+                        <div class="fileinput col-md-4" *ngIf="!imagePreviewtwo">
+                            <input type="file" style="display:none" id="image2" #input (change)="showImage2(input)" >
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner <div><small style="color:red" > &nbsp;</small></div></label>
+
+                        </div>
+                        <div class=" col-md-4" *ngIf="imagePreviewtwo">
+                            <a class="close s" (click)="deleteImage2()">&times;</a>
+
+                            <img src="{{ imagePreviewtwo }}" class="image shadow" alt="" *ngIf="imagePreviewtwo">
+
+
+                        </div>
+                        <!-- 3 -->
+
+                        <div class="fileinput col-md-4" *ngIf="!imagePreview3">
+                            <input type="file" style="display:none" id="image3" #input3 (change)="showImage3(input3)" >
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input3)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner  <div><small style="color:red" > &nbsp;</small></div></label>
+
+                        </div>
+                        <div class=" col-md-4" *ngIf="imagePreview">
+                            <a class="close s" (click)="deleteImage3()">&times;</a>
+
+                            <img src="{{ imagePreview3 }}" class="image shadow" alt="" *ngIf="imagePreview3">
+
+
+                        </div>
+
+
+                        <!-- <div class="fileinput col-md-4">
                             <input type="file" style="display:none" id="image" #input2>
 
                             <h1>
@@ -47,7 +93,7 @@
                             <label for="image">clicker pour selectionner</label>
 
 
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -78,13 +124,15 @@
 
                     <div class="card-body">
                         <label for="objet">Objet à vendre</label>
-                        <input type="text" class="form-control" id="objet" formControlName="objet" placeholder="Nom d'objet a vendre">
+                        <input type="text" class="form-control" id="objet" formControlName="objet"
+                            placeholder="Nom d'objet a vendre">
 
                         <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" formControlName="description" placeholder="Ajouter une description sur votre article">
-                      
+                        <input type="text" class="form-control" id="description" formControlName="description"
+                            placeholder="Ajouter une description sur votre article">
+
                         <label for="Genre">Genre</label>
-                        <select  id="Genre" class="form-control" formControlName="genre">
+                        <select id="Genre" class="form-control" formControlName="genre">
                             <option value="" disabled selected>Genre</option>
                             <option value="homme">Homme</option>
                             <option value="femme">Femme</option>
@@ -117,7 +165,7 @@
                         </select>
                         <label for="couleurs">Couleurs</label>
                         <select name="couleurs" id="couleurs" class="form-control">
-                            <option value=""disabled selected>Couleur</option>
+                            <option value="" disabled selected>Couleur</option>
                             <option value="Argent">Argent</option>
                             <option value="Beige">Beige</option>
                             <option value="Banc">Blanc</option>
@@ -140,6 +188,25 @@
                             <option value="Vert d'eau">Vert d'eau</option>
                             <option value="Violet">Violet</option>
                         </select>
+                        <br>
+                        <label for="categorie">Catégories</label>
+                        <select name="" id="categorie" class="form-control" #categorieName (change)="show(categorieName)">
+                            <option value="" disabled selected>Catégories</option>
+                            <option *ngFor="let categorie of categories" value="{{categorie.name}}">
+                                {{categorie.name}}
+                            </option>
+                        </select>
+                        <br>
+                        <div class="souscat" *ngIf="shower">
+                            <label for="souscat">Sous Catégories </label>
+
+                            <select name="" id="" class="form-control" >
+                                <option value="" *ngFor="let sub of subcategories">
+                                    {{ sub }}
+                                    <!-- {{ categories | categories:categorieName.value }} -->
+                                </option>
+                            </select>
+                        </div>
                         <button class="btn btn-secondary mt-4" (click)="submit()">
                             Ajouter
                         </button>
@@ -178,7 +245,8 @@
                             </div>
                             <div class="col-md-10">
 
-                                <input type="text" class="form-control" id="telephone" placeholder="Votre numéro de télèphone..">
+                                <input type="text" class="form-control" id="telephone"
+                                    placeholder="Votre numéro de télèphone..">
                             </div>
                         </div>
                         <br>
@@ -200,7 +268,8 @@
                             </div>
                             <div class="col-md-10">
 
-                                <input type="text" class="form-control" id="Adresse" placeholder="Numéro et Rue / Avenue / Passage..">
+                                <input type="text" class="form-control" id="Adresse"
+                                    placeholder="Numéro et Rue / Avenue / Passage..">
                             </div>
                         </div>
                         <br>
@@ -263,6 +332,7 @@
                                 </select>
                             </div>
                         </div>
+                        
 
 
 

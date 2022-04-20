@@ -18,6 +18,7 @@ import { ElementsComponent } from './elements/elements.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { CategoriesPipe } from './pipes/categories.pipe';
 
 
 // AoT requires an exported function for factories
@@ -34,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     RegisterComponent,
     AddProductComponent,
+    CategoriesPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
