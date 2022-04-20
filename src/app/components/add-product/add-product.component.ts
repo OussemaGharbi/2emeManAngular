@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-product',
@@ -10,20 +12,25 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class AddProductComponent implements OnInit {
   shower = false
 
-
+ 
 
   addForm = new FormGroup({
     description: new FormControl(''),
     etat: new FormControl(''),
-    objet: new FormControl(''),
+    name: new FormControl(''),
     genre: new FormControl(''),
-
+    size: new FormControl(''),
+    color : new FormControl(''),
+    category: new FormControl(''),
+    subcategory: new FormControl(''),
+    image1: new FormControl(''),
+    image2: new FormControl(''),
+    image3: new FormControl(''),
   })
   categories
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
   pointer(input) {
     input.click()
-
   }
   subcategories
   show(categorieName) {
@@ -45,7 +52,10 @@ export class AddProductComponent implements OnInit {
   }
   submit() {
     console.log(this.addForm.value);
-
+    /* if(this.addForm.valid) */
+    this.productService.addProduct(this.addForm.value).subscribe(result => {
+      this.router.navigate(["/shop/collection/infinitescroll"]);
+    })
 
   }
   imagePreview
@@ -53,7 +63,7 @@ export class AddProductComponent implements OnInit {
   imagePreview3
   showImage(imageInput: any) {
     const file: File = imageInput.files[0];
-    /* this.postForm.patchValue({image: file}); */
+    this.addForm.patchValue({image1: file});
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result as string;
@@ -63,7 +73,7 @@ export class AddProductComponent implements OnInit {
   }
   showImage2(imageInput: any) {
     const file: File = imageInput.files[0];
-    /* this.postForm.patchValue({image: file}); */
+    this.addForm.patchValue({image2: file});
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreviewtwo = reader.result as string;
@@ -73,7 +83,7 @@ export class AddProductComponent implements OnInit {
   }
   showImage3(imageInput: any) {
     const file: File = imageInput.files[0];
-    /* this.postForm.patchValue({image: file}); */
+    this.addForm.patchValue({image3: file});
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview3 = reader.result as string;
@@ -82,12 +92,15 @@ export class AddProductComponent implements OnInit {
 
   }
   deleteImage1(){
-    this.imagePreview=null
+    this.imagePreview=null;
+    this.addForm.patchValue({image1: null});
   }
   deleteImage2(){
-    this.imagePreviewtwo=null
+    this.imagePreviewtwo=null;
+    this.addForm.patchValue({image2: null});
   }
   deleteImage3(){
-    this.imagePreview3=null
+    this.imagePreview3=null,
+    this.addForm.patchValue({image3: null});
   }
 }

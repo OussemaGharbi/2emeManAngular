@@ -19,6 +19,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { CategoriesPipe } from './pipes/categories.pipe';
+import { MyproductsComponent } from './components/myproducts/myproducts.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ShopRoutingModule } from './shop/shop-routing.module';
+import { Ng5SliderModule } from 'ng5-slider';
+import { CommonModule } from '@angular/common';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 // AoT requires an exported function for factories
@@ -35,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     RegisterComponent,
     AddProductComponent,
-    CategoriesPipe
+    CategoriesPipe,
+    MyproductsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -44,6 +51,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
+    InfiniteScrollModule,
+    CommonModule,
+    NgxPayPalModule,
+    Ng5SliderModule,
+    SharedModule,
+    ShopRoutingModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       progressBar: false,

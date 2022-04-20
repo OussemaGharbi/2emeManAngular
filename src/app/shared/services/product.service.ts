@@ -43,6 +43,38 @@ export class ProductService {
    return this.http.get('assets/data/categories.json')
  }
 
+ public addProduct(product:any){
+   let images=[]
+   let productData = new FormData();
+   
+   productData.append("name",product.name);
+   productData.append("description",product.description);
+   productData.append("etat",product.etat);
+   productData.append("genre",product.genre);
+   productData.append("size",product.size);
+   productData.append("color",product.color);
+   productData.append("category",product.category);
+   productData.append("subcategory",product.subcategory);
+  
+  if(product.image1){
+    images.push(product.image1)
+  }
+  if(product.image2){
+    images.push(product.image2)
+  }
+  if(product.image3){
+    images.push(product.image3)
+  }
+  if(images.length>0){
+
+    for (var i =0;i<images.length;i++) {
+      productData.append("images",images[i]);
+    }
+  }
+
+  return this.http.post(this.productApi,productData);
+ }
+
   // Product
   private get products(): Observable<Product[]> {
     this.Products = this.http.get<Product[]>('assets/data/products.json').pipe(map(data => data));
