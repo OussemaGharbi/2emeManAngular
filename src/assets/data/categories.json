@@ -1,5 +1,5 @@
-{
-    "categories":[
+
+    [
         {
             "name":"MOBILIER",
             "subcategories":["MEUBLES",
@@ -151,4 +151,3 @@
             "subcategories":[]
         }
     ]
-}

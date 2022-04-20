@@ -39,6 +39,9 @@ export class ProductService {
  public getProduits(){
    return this.http.get(this.productApi + '/')
  }
+ public getCategories(){
+   return this.http.get('assets/data/categories.json')
+ }
 
   // Product
   private get products(): Observable<Product[]> {
