@@ -136,15 +136,68 @@
         },
         {
             "name":"Bijoux et Accessoires | Femmes",
+            "subcategories":["Bagues",
+                "Boîtes de maquillage & Beauty case",   
+                "Boucles d'oreilles"  , 
+                "Boutons de manchette" ,  
+                "Bracelets"  , 
+                "Broches" ,  
+                "Colliers"
+             ]
+        },
+        {
+            "name":"VÊTEMENTS FILLE",
+            "subcategories":[
+                "Manteaux, parkas et doudounes",
+                "Robes et jupes",
+                "T-shirts et sous-pulls",
+                "Chemises et blouses",
+                "Pulls, sweats et gilets",
+                "Salopettes et combishorts",
+                "Pantalons, jeans et leggings",
+                "Pantacourts et shorts",
+                "Vêtements de sport",
+                "Maillots de bain",
+                "Pyjamas et chemises de nuit",
+                "Sous-vêtements",
+                "Chaussures du 25 au 38",
+                "Accessoires et montres"
+            ]
+        },
+        {
+            "name": "VÊTEMENTS GARÇON",
+            "subcategories": [
+                "Manteaux, parkas et doudounes",
+                "Pulls, sweats et gilets",
+                "T-shirts, polos et sous-pulls",
+                "Chemises",
+                "Pantalons et jeans",
+                "Bermudas",
+                "Vêtements de sport",
+                "Sous-vêtements",
+                "Pyjamas et robes de chambre",
+                "Chaussettes",
+                "Maillots de bain",
+                "Chaussures du 25 au 39",
+                "Accessoires et montres"
+            ]
+        },
+        
+        {
+            "name":"Beauté | Soins des cheveux  ,corps   , Soins du visage",
             "subcategories":[]
         },
         {
             "name":"Beauté | Cosmétiques & Maquillage",
-            "subcategories":[]
+            "subcategories":[
+
+            ]
         },
         {
             "name":"Beauté | Parfums",
-            "subcategories":[]
+            "subcategories":[
+                
+            ]
         },
         {
             "name":"Beauté | Soins des cheveux  ,corps   , Soins du visage",
