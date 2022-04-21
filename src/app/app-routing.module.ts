@@ -13,7 +13,7 @@ const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path:'register', component:RegisterComponent},
   {path:'addproduct', component:AddProductComponent},
-  {path:'profile', component:MyproductsComponent},
+  {path:'myproducts', component:MyproductsComponent},
   {
     path: '',
     redirectTo: 'home/electronics',

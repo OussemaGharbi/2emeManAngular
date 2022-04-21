@@ -33,8 +33,11 @@ export class ProductService {
     ---------------------------------------------
   */
 
+//get user products
 
-
+public getUserProducts(){
+  return this.http.get(this.productApi + '/products')
+}
  //get all products 
  public getProduits(){
    return this.http.get(this.productApi + '/')
@@ -47,7 +50,7 @@ export class ProductService {
    let images=[]
    let productData = new FormData();
    
-   productData.append("name",product.name);
+   productData.append("title",product.title);
    productData.append("description",product.description);
    productData.append("etat",product.etat);
    productData.append("genre",product.genre);

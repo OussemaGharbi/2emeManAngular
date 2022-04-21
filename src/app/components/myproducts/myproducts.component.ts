@@ -36,7 +36,14 @@ export class MyproductsComponent implements OnInit {
       
   }
 
+  produits = []
   ngOnInit(): void {
+
+    this.productService.getUserProducts().subscribe(result=>{
+      this.produits = result as []
+      console.log(this.produits)
+    })
+
 
   }
 

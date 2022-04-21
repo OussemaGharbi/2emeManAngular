@@ -17,7 +17,7 @@ export class AddProductComponent implements OnInit {
   addForm = new FormGroup({
     description: new FormControl(''),
     etat: new FormControl(''),
-    name: new FormControl(''),
+    title: new FormControl(''),
     genre: new FormControl(''),
     size: new FormControl(''),
     color : new FormControl(''),
