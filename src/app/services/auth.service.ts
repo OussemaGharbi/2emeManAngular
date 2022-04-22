@@ -54,7 +54,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.token =''
-    this.isAuthentificated=false
+    this.isAuthentificated=false;
     this.router.navigate(['/auth/login'])
   }
   //quand le token expires

@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
 import { QuickViewComponent } from "../../modal/quick-view/quick-view.component";
 import { CartModalComponent } from "../../modal/cart-modal/cart-modal.component";
 import { Product } from "../../../classes/product";
 import { ProductService } from "../../../services/product.service";
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product-box-one',
@@ -17,7 +18,7 @@ export class ProductBoxOneComponent implements OnInit {
   @Input() onHowerChangeImage: boolean = false; // Default False
   @Input() cartModal: boolean = false; // Default False
   @Input() loader: boolean = false;
-  
+  @Output() deleteEvent:EventEmitter<any> = new EventEmitter();
   @ViewChild("quickView") QuickView: QuickViewComponent;
   @ViewChild("cartModal") CartModal: CartModalComponent;
 
@@ -70,6 +71,14 @@ export class ProductBoxOneComponent implements OnInit {
 
   addToCompare(product: any) {
     this.productService.addToCompare(product);
+  }
+  edit(product){
+
+  }
+  delete(product){
+    this.productService.deleteProduct(product._id).subscribe((result) => {
+    this.deleteEvent.emit(product._id);
+    })
   }
 
 }

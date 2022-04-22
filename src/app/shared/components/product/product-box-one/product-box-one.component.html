@@ -30,19 +30,19 @@
         *ngIf="cartModal">
         <i class="ti-shopping-cart"></i>
       </a>
-      <a href="javascript:void(0)" title="Add to cart" (click)="addToCart(product)"
+      <a href="javascript:void(0)" title="Edit" (click)="edit(product)"
         *ngIf="!cartModal">
-        <i class="ti-shopping-cart"></i>
+        <i class="fa-light fa-pen-to-square"></i>
       </a>
-      <a href="javascript:void(0)" title="Add to Wishlist" (click)="addToWishlist(product)">
-        <i class="ti-heart" aria-hidden="true"></i>
+      <a href="javascript:void(0)" title="Delete" (click)="delete(product)">
+        <i class="fa-light fa-xmark"></i>
       </a>
       <a href="javascript:void(0)" title="Quick View" (click)="QuickView.openModal()">
         <i class="ti-search" aria-hidden="true"></i>
       </a>
-      <a href="javascript:void(0)" title="Compare" (click)="addToCompare(product)">
+<!--       <a href="javascript:void(0)" title="Compare" (click)="addToCompare(product)">
         <i class="ti-reload" aria-hidden="true"></i>
-      </a>
+      </a> -->
     </div>
   </div>
   <div class="product-detail">

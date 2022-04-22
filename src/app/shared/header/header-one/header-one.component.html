@@ -25,16 +25,27 @@
             <li class="mobile-wishlist">
               <a [routerLink]="['/shop/wishlist']"><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a>
             </li>
-            <li class="onhover-dropdown mobile-account">
+            <li *ngIf="!isAuthentificated">
+              <a data-lng="en" routerLink="/login">
+                Login
+              </a>
+            </li>
+            <li>
+              <a *ngIf="!isAuthentificated" data-lng="en" routerLink="/signup">
+                Sign Up
+              </a>
+            </li>
+            <li class="onhover-dropdown mobile-account" *ngIf="isAuthentificated">
               <i class="fa fa-user" aria-hidden="true"></i> My Account
               <ul class="onhover-show-div">
+
                 <li>
-                  <a data-lng="en">
-                    Login
+                  <a data-lng="en" routerLink="/myproducts">
+                    Mes produits
                   </a>
                 </li>
                 <li>
-                  <a data-lng="es">
+                  <a data-lng="es" (click)="logout()">
                     Logout
                   </a>
                 </li>

@@ -33,6 +33,16 @@ export class ProductService {
     ---------------------------------------------
   */
 
+//delete Product from backend store
+public deleteProduct(id: string) {
+  return this.http.delete(this.productApi + '/'+id);
+}
+
+//zdit Product from backend store
+public editProduct(product:Product, id: string) {
+  return this.http.put(this.productApi +'/'+id,product);
+}
+
 //get user products
 
 public getUserProducts(){

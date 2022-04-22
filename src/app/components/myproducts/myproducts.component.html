@@ -68,7 +68,6 @@
                                     <li class="mr-1" *ngFor="let tag of tags">
                                     </li>
                                     <li class="clear_filter" *ngIf="tags.length > 0">
-
                                     </li>
                                 </ul>
                                 <div class="collection-product-wrapper" id="products">
@@ -80,7 +79,9 @@
                                                         [product]="product"
                                                         [currency]="productService?.Currency"
                                                         [thumbnail]="false"
-                                                        [cartModal]="true">
+                                                        [cartModal]="true"
+                                                        (deleteEvent)="deleteProduct($event)"
+                                                        >
                                                     </app-product-box-one>
                                                 </div>
                                             </div>

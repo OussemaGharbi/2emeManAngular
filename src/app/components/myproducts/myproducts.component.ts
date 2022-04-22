@@ -85,6 +85,14 @@ export class MyproductsComponent implements OnInit {
     this.mobileSidebar = !this.mobileSidebar;
   }
 
+  deleteProduct(id: string) {
+    this.produits = this.produits.filter(val => val._id !== id);
+  }
+  editProduct(id: string) {
+    console.log("received "+id);
+    this.produits;
+  }
+
 
 }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header-one',
@@ -13,10 +15,17 @@ export class HeaderOneComponent implements OnInit {
   @Input() sticky: boolean = false; // Default false
   
   public stick: boolean = false;
-
-  constructor() { }
+  isAuthentificated
+  constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit(): void {
+    this.isAuthentificated=this.authService.isAuthentificated;
+  }
+
+  logout(){
+    this.authService.logout();
+    this.isAuthentificated=false;
+    this.router.navigate(['/']);
   }
 
   // @HostListener Decorator

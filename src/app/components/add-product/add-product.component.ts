@@ -54,7 +54,7 @@ export class AddProductComponent implements OnInit {
     console.log(this.addForm.value);
     /* if(this.addForm.valid) */
     this.productService.addProduct(this.addForm.value).subscribe(result => {
-      this.router.navigate(["/shop/collection/infinitescroll"]);
+      this.router.navigate(["/myproducts"]);
     })
 
   }
