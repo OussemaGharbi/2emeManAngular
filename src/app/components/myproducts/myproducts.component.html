@@ -4,7 +4,7 @@
 <section class="section-b-space">
     <div class="collection-wrapper">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-3">
                     <div class="collection-filter" [class.openFilterbar]="mobileSidebar">
                         <!-- side-bar colleps block stat -->
@@ -34,8 +34,11 @@
                                        <h4>{{user.nom || "Ahmed"}} {{user.prenom || "Dridi"}}</h4>
                                     </div>
                                     <div>
-                                       <a href="#" class="btn"><i class="fa fa-plus" aria-hidden="true"></i>  je vends</a>
+                                       <button href="#" class="btn button-bl" routerLink="/addproduct"><i class="fa fa-plus" aria-hidden="true"></i>  je vends</button>
                                     </div>
+                                    <div>
+                                        <button href="#" class="btn button-light">Mon profile</button>
+                                     </div>
                                  </div>
                             </div>
 

@@ -64,8 +64,8 @@
     color: gray;
     margin-bottom: 0px;
     }
-    .lower-container .btn{
-    padding: 12px 20px;
+/*     .lower-container .btn{
+    padding: 6px 10px;
     background: #789cf4;
     border: none;
     color: white;
@@ -80,4 +80,26 @@
     color: #789cf4;
     border: 2px solid #789cf4;
     }
-    
+     */
+
+     .button-bl{
+        background-color: #719ff1; 
+        color: white;
+        width:10vw;
+        margin-bottom: 10px;
+        transition: 200ms ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     }
+     .button-bl:hover{
+        background-color: transparent; 
+        color: #719ff1;
+        border: 1px solid #719ff1;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        
+     }
+
+     .button-light{
+         background-color: white;
+
+         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     }
