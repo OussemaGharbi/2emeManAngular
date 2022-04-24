@@ -4,6 +4,7 @@ import { ViewportScroller } from '@angular/common';
 
 import * as _ from 'lodash'
 import { ProductService } from 'src/app/shared/services/product.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -30,15 +31,16 @@ export class MyproductsComponent implements OnInit {
   public loader: boolean = true;
   public finished: boolean = false  // boolean when end of data is reached
   public addItemCount = 8;
-
+  user
   constructor(private router: Router,
-    private viewScroller: ViewportScroller, public productService: ProductService) {   
+    private viewScroller: ViewportScroller, public productService: ProductService, public authService:AuthService) {   
       
   }
-
+  
   produits = []
   ngOnInit(): void {
-
+    this.user = this.authService.user;
+    console.log(this.user)
     this.productService.getUserProducts().subscribe(result=>{
       this.produits = result as []
       console.log(this.produits)
@@ -86,7 +88,11 @@ export class MyproductsComponent implements OnInit {
   }
 
   deleteProduct(id: string) {
+    this.productService.deleteProduct(id).subscribe(()=>{
+
+    })
     this.produits = this.produits.filter(val => val._id !== id);
+
   }
   editProduct(id: string) {
     console.log("received "+id);

@@ -15,7 +15,32 @@
                                 </span>
                             </div>
                             <!-- Category filter start -->
-                            <app-categories></app-categories>
+                            <!-- <app-categories></app-categories> -->
+
+
+<!--                             <div class="row justify-content-center">
+                                <img src="assets/images/user-pic.png" class="profileImg">
+                            </div> -->
+                            <div>
+                                <!-- <div class="upper-container row justify-content-center"> -->
+                                    <div class="upper-container">
+                                        <div class="image-container">
+                                            <img src="{{ user.image || 'assets/images/ahmed.jpg' }}" />
+                                        </div>
+                                    </div>
+                                 <!-- </div> -->
+                                <div class="lower-container">
+                                    <div>
+                                       <h4>{{user.nom || "Ahmed"}} {{user.prenom || "Dridi"}}</h4>
+                                    </div>
+                                    <div>
+                                       <a href="#" class="btn"><i class="fa fa-plus" aria-hidden="true"></i>  je vends</a>
+                                    </div>
+                                 </div>
+                            </div>
+
+
+                            
                         </div>
                         <!-- silde-bar colleps block end here -->
                         <!-- side-bar colleps block stat -->
@@ -40,7 +65,7 @@
                     <div class="page-main-content">
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="top-banner-wrapper">
+<!--                                 <div class="top-banner-wrapper">
                                     <a [routerLink]="['/shop/collection/left/sidebar']">
                                         <img src="assets/images/collection-banner.jpg" class="img-fluid " alt="">
                                     </a>
@@ -54,7 +79,7 @@
                                             and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                         </p>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="filter-main-btn" (click)="toggleMobileSidebar()">
@@ -75,7 +100,7 @@
                                         <div class="row">
                                             <div class="col-grid-box" [ngClass]="grid" *ngFor="let product of produits">
                                                 <div class="product-box">
-                                                    <app-product-box-one 
+                                                    <app-product-box-one style="color:#719ff1"
                                                         [product]="product"
                                                         [currency]="productService?.Currency"
                                                         [thumbnail]="false"
