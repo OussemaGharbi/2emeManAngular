@@ -1,0 +1,234 @@
+<app-header-one></app-header-one>
+<form [formGroup]="addForm" *ngIf="pv">
+    <div class="card container shadow p-3 mb-5 bg-white rounded" id="card">
+
+        <div class="col-md-12">
+            <div class="row justify-content-center">
+
+                <div class="card bg-light m-3 shadow rounded">
+                    <div class="card-header">
+                        <h1>
+                            <i class="fa fa-fw fa-camera-retro"> </i>
+                            Prends 3 photos !
+
+                        </h1>
+                    </div>
+                    <!-- 1 -->
+                    <div class="row justify-content-between" style="margin:80px 80px ">
+
+                        <div class="fileinput col-md-4" *ngIf="!imagePreview">
+                            <input type="file" style="display:none" id="image" #input (change)="showImage(input)">
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner<small style="color:red">
+                                    Obligatoire!</small></label>
+
+                        </div>
+                        <div class=" col-md-4" *ngIf="imagePreview">
+                            <a class="close s" (click)="deleteImage1()">&times;</a>
+
+                            <img src="{{ imagePreview }}" class="image shadow" alt="" *ngIf="imagePreview">
+
+
+                        </div>
+                        <!-- 2 -->
+                        <div class="fileinput col-md-4" *ngIf="!imagePreviewtwo">
+                            <input type="file" style="display:none" id="image2" #input (change)="showImage2(input)">
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner <div><small style="color:red"> &nbsp;</small>
+                                </div></label>
+
+                        </div>
+                        <div class=" col-md-4" *ngIf="imagePreviewtwo">
+                            <a class="close s" (click)="deleteImage2()">&times;</a>
+
+                            <img src="{{ imagePreviewtwo }}" class="image shadow" alt="" *ngIf="imagePreviewtwo">
+
+
+                        </div>
+                        <!-- 3 -->
+
+                        <div class="fileinput col-md-4" *ngIf="!imagePreview3">
+                            <input type="file" style="display:none" id="image3" #input3 (change)="showImage3(input3)">
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input3)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner <div><small style="color:red"> &nbsp;</small>
+                                </div></label>
+
+                        </div>
+                        <div class=" col-md-4" *ngIf="imagePreview3">
+                            <a class="close s" (click)="deleteImage3()">&times;</a>
+
+                            <img src="{{ imagePreview3 }}" class="image shadow" alt="" *ngIf="imagePreview3">
+
+
+                        </div>
+
+
+                        <!-- <div class="fileinput col-md-4">
+                            <input type="file" style="display:none" id="image" #input2>
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input2)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner</label>
+
+
+                        </div>
+                        <div class="fileinput col-md-4">
+                            <input type="file" style="display:none" id="image" #input3>
+
+                            <h1>
+                                <i class="fa fa-solid fa-camera ajouter" (click)="pointer(input3)"> </i>
+
+                            </h1>
+                            <label for="image">clicker pour selectionner</label>
+
+
+                        </div> -->
+
+                    </div>
+
+                    <!-- <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div> -->
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- second card -->
+        <div class="justify-content-center">
+
+            <div class="card bg-light m-3 shadow rounded">
+                <div class="card-header">
+                    <h1>
+                        <i class="fa fa-fw fa-pencil"> </i>
+                        Décrits Ton Article!
+
+                    </h1>
+                </div>
+                <div class="row justify-content-between" style="margin:100px 100px ">
+
+                    <div class="card-body">
+                        <label for="objet">Objet à vendre</label>
+                        <input type="text" class="form-control" id="objet" formControlName="title"
+                            value="{{produit.title}}">
+
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" formControlName="description"
+                            *ngIf="produit" [value]="produit['description']"
+                            placeholder="Ajouter une description sur votre article">
+
+                        <label for="Genre">Genre</label>
+                        <select id="Genre" class="form-control" formControlName="genre">
+                            <option value="" disabled selected>Genre</option>
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
+                            <option value="garçon">Fille</option>
+                            <option value="garçon">Garçon</option>
+
+                        </select>
+
+                        <label for="etat">Etat</label>
+
+                        <select name="etat" id="etat" class="form-control" formControlName="etat" placeholder="Etat">
+                            <!-- <option value="{{produit['etat']}}" selected>{{produit['etat']}}</option> -->
+                            <option value="Neuf avec étiquette">Neuf avec étiquette</option>
+                            <option value="Neuf sans étiquette">Neuf sans étiquette</option>
+                            <option value="Trés bon état">Trés bon état</option>
+                            <option value="Satisfaisant">Satisfaisant</option>
+                        </select>
+
+                        <label for="taille">Taille</label>
+                        <select name="taille" id="taille" class="form-control" formControlName="size">
+                            <option value="{{produit['size']}}" selected> {{produit['size']}}</option>
+                            <option value="s">s</option>
+                            <option value="xs">xs</option>
+                            <option value="m">m</option>
+                            <option value="l">l</option>
+                            <option value="xl">xl</option>
+                            <option value="2xl">2xl</option>
+                            <option value="3xl">3xl</option>
+                            <option value="4xl">4xl</option>
+                        </select>
+                        <label for="couleurs">Couleurs</label>
+                        <select name="couleurs" id="couleurs" class="form-control" formControlName="color">
+                            <option value="{{produit['color']}}" selected>{{produit['color']}}</option>
+                            <option value="Argent">Argent</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Banc">Blanc</option>
+                            <option value="Bleu">Bleu</option>
+                            <option value="Bordeaux">Bordeaux</option>
+                            <option value="Camel">Camel</option>
+                            <option value="Corail">Corail</option>
+                            <option value="Doré">Doré</option>
+                            <option value="Gris">Gris</option>
+                            <option value="Jaune">Marron</option>
+                            <option value="Marron">Marron</option>
+                            <option value="Multicolores">Multicolores</option>
+                            <option value="Noir">Noir</option>
+                            <option value="Nude">Nude</option>
+                            <option value="Orange">Orane</option>
+                            <option value="Rose poudré">Rose poudré</option>
+                            <option value="Rouge">Rouge</option>
+                            <option value="Turquoise">Turquoise</option>
+                            <option value="Vert">Vert</option>
+                            <option value="Vert d'eau">Vert d'eau</option>
+                            <option value="Violet">Violet</option>
+                        </select>
+                        <br>
+                        <label for="categorie">Catégories</label>
+                        <select name="" id="categorie" class="form-control" #categorieName
+                            (change)="show(categorieName)" formControlName="category">
+                            <option [value]="produit['category']" selected>{{produit['category']}}</option>
+                            <option *ngFor="let categorie of categories" value="{{categorie.name}}">
+                                {{categorie.name}}
+                            </option>
+                        </select>
+                        <br>
+                        <div class="souscat">
+                            <label for="souscat">Sous Catégories </label>
+
+                            <select name="" id="" class="form-control" formControlName="subcategory">
+                                <option [value]="produit['subcategory']" selected>{{produit['subcategory']}}</option>
+
+                                <option *ngFor="let sub of subcategories" value="{{sub}}">
+                                    {{ sub }}
+                                    <!-- {{ categories | categories:categorieName.value }} -->
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div> -->
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="submit()">
+            Enregistrer
+        </button>
+    </div>
+
+</form>

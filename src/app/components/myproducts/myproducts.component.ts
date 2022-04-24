@@ -86,7 +86,10 @@ export class MyproductsComponent implements OnInit {
   }
 
   deleteProduct(id: string) {
-    this.produits = this.produits.filter(val => val._id !== id);
+    this.productService.deleteProduct(id).subscribe(()=>{
+      this.produits = this.produits.filter(val => val._id !== id);
+
+    })
   }
   editProduct(id: string) {
     console.log("received "+id);

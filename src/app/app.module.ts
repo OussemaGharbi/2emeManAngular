@@ -26,6 +26,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { CommonModule } from '@angular/common';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { AuthInterceptor } from 'src/auth_interceptor';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 
 // AoT requires an exported function for factories
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterComponent,
     AddProductComponent,
     CategoriesPipe,
-    MyproductsComponent
+    MyproductsComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

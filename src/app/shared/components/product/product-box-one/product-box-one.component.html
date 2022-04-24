@@ -30,12 +30,12 @@
         *ngIf="cartModal">
         <i class="ti-shopping-cart"></i>
       </a>
-      <a href="javascript:void(0)" title="Edit" (click)="edit(product)"
-        *ngIf="!cartModal">
-        <i class="fa-light fa-pen-to-square"></i>
+      <a title="Edit" (click)="edit(product)" [routerLink]="['/product',product['_id']]"
+        >
+        <i class="fa fa-light fa-pen-to-square"></i>
       </a>
       <a href="javascript:void(0)" title="Delete" (click)="delete(product)">
-        <i class="fa-light fa-xmark"></i>
+        <i class="fa fa-light fa-xmark"></i>
       </a>
       <a href="javascript:void(0)" title="Quick View" (click)="QuickView.openModal()">
         <i class="ti-search" aria-hidden="true"></i>
