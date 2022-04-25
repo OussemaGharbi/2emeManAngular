@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'product/:id', component:EditProductComponent},
   {
     path: '',
-    redirectTo: 'home/electronics',
+    redirectTo: 'shop/collection/infinitescroll',
     pathMatch: 'full'
   },
   {

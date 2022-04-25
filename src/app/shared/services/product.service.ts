@@ -104,6 +104,7 @@ public getAll(){
     productData.append("color", product.color);
     productData.append("category", product.category);
     productData.append("subcategory", product.subcategory);
+    productData.append("price", product.price);
 
     if (product.image1) {
       images.push(product.image1)

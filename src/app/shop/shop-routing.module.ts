@@ -16,7 +16,7 @@ import { SuccessComponent } from './checkout/success/success.component';
 import { Resolver } from '../shared/services/resolver.service';
 
 const routes: Routes = [
- 
+
 
   {
     path: 'product/no/sidebar/:slug',
@@ -32,7 +32,7 @@ const routes: Routes = [
       data: Resolver
     }
   },
-  
+
   {
     path: 'product/bundle/:slug',
     component: BundleProductComponent,
@@ -47,7 +47,7 @@ const routes: Routes = [
       data: Resolver
     }
   },
-  
+
   {
     path: 'collection/infinitescroll',
     component: CollectionInfinitescrollComponent
@@ -60,7 +60,7 @@ const routes: Routes = [
     path: 'wishlist',
     component: WishlistComponent
   },
-  
+
   {
     path: 'checkout',
     component: CheckoutComponent
