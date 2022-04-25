@@ -15,13 +15,13 @@ export class SettingsComponent implements OnInit {
   public products: Product[] = [];
   public search: boolean = false;
   
-  public languages = [{ 
-    name: 'English',
-    code: 'en'
-  }, {
-    name: 'French',
-    code: 'fr'
-  }];
+  // public languages = [{ 
+  //   name: 'English',
+  //   code: 'en'
+  // }, {
+  //   name: 'French',
+  //   code: 'fr'
+  // }];
 
   public currencies = [{
     name: 'Euro',

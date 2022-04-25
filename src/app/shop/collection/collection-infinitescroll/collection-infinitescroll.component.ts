@@ -69,8 +69,17 @@ export class CollectionInfinitescrollComponent implements OnInit {
         })
       })
   }
-
+  produits = []
   ngOnInit(): void {
+
+    this.productService.getAll().subscribe(result=>{
+      this.produits = result as []
+
+        console.log(this.produits);
+        
+    }
+     )
+
 
   }
 

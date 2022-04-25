@@ -1,5 +1,5 @@
 <app-header-one [sticky]="true"></app-header-one>
-<app-breadcrumb [title]="'Collection'" [breadcrumb]="'Collection'"></app-breadcrumb>
+<!-- <app-breadcrumb ></app-breadcrumb> -->
 <!-- section start -->
 <section class="section-b-space">
     <div class="collection-wrapper">
@@ -52,15 +52,13 @@
                         </div>
                         <!-- silde-bar colleps block end here -->
                         <!-- side-bar single product slider start -->
-                        <app-product-box-vertical-slider [title]="'New Products'">
-                        </app-product-box-vertical-slider>
                         <!-- side-bar single product slider end -->
                         <!-- side-bar banner start here -->
-                        <div class="collection-sidebar-banner">
+                        <!-- <div class="collection-sidebar-banner">
                             <a [routerLink]="['/shop/collection/left/sidebar']">
                                 <img src="assets/images/collection-sidebar-banner.png" class="img-fluid" alt="banner">
                             </a>
-                        </div>
+                        </div> -->
                         <!-- side-bar banner end here -->
                     </div>
                 </div>
@@ -135,7 +133,7 @@
                                                     <div class="text-center col-sm-12">
                                                         <div class="infinite-scrolling mt-3 mb-3 d-inline-block">
                                                             <img src="assets/images/loader.gif" *ngIf="!finished && produits.length">
-                                                            <div class="loading-more active" *ngIf="finished && produits.length">No More Products</div>
+                                                            <div class="loading-more active mt-5" *ngIf="finished && produits.length">No More Products</div>
                                                         </div>
                                                     </div>
                                                 </div>

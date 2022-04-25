@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, startWith, delay } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { Product } from '../classes/product';
+import { Product } from '../../../models/product'
 import { environment } from 'src/environments/environment';
 
 const state = {
@@ -19,7 +19,7 @@ const state = {
 export class ProductService {
 
   public productApi = environment.apiUrl + '/api/product'
-  public Currency = { name: 'Dollar', currency: 'USD', price: 1 } // Default Currency
+  public Currency = { name: 'Dinar', currency: 'Dt', price: 1 } // Default Currency
   public OpenCart: boolean = false;
   public Products
   public produits
@@ -32,6 +32,11 @@ export class ProductService {
     ---------------  Product  -------------------
     ---------------------------------------------
   */
+
+  //getall products
+public getAll(){
+  return this.http.get(this.productApi  + '/')
+}
 
   //delete Product from backend store
   public deleteProduct(id: string) {
@@ -253,7 +258,7 @@ export class ProductService {
   // Update Cart Quantity
   public updateCartQuantity(product: Product, quantity: number): Product | boolean {
     return state.cart.find((items, index) => {
-      if (items.id === product.id) {
+      if (items.id === product._id) {
         const qty = state.cart[index].quantity + quantity
         const stock = this.calculateStockCounts(state.cart[index], quantity)
         if (qty !== 0 && stock) {
@@ -289,10 +294,10 @@ export class ProductService {
     return this.cartItems.pipe(map((product: Product[]) => {
       return product.reduce((prev, curr: Product) => {
         let price = curr.price;
-        if (curr.discount) {
-          price = curr.price - (curr.price * curr.discount / 100)
-        }
-        return (prev + price * curr.quantity) * this.Currency.price;
+        // if (curr.discount) {
+        //   price = curr.price - (curr.price * curr.discount / 100)
+        // }
+        return (prev + price ) * this.Currency.price;
       }, 0);
     }));
   }
@@ -325,9 +330,9 @@ export class ProductService {
 
     if (payload === 'ascending') {
       return products.sort((a, b) => {
-        if (a.id < b.id) {
+        if (a._id < b._id) {
           return -1;
-        } else if (a.id > b.id) {
+        } else if (a._id > b._id) {
           return 1;
         }
         return 0;
