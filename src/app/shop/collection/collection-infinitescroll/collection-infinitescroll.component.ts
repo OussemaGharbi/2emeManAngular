@@ -30,61 +30,105 @@ export class CollectionInfinitescrollComponent implements OnInit {
   public loader: boolean = true;
   public finished: boolean = false  // boolean when end of data is reached
   public addItemCount = 8;
-
+  public subcategory
   constructor(private route: ActivatedRoute, private router: Router,
-    private viewScroller: ViewportScroller, public productService: ProductService) {   
-      // Get Query params..
-      this.route.queryParams.subscribe(params => {
-        this.products = [];
-        this.finished = false;
+    private viewScroller: ViewportScroller, public productService: ProductService) {
+    // Get Query params..
+    this.route.queryParams.subscribe(params => {
+      this.products = [];
+      this.finished = false;
 
-        this.brands = params.brand ? params.brand.split(",") : [];
-        this.colors = params.color ? params.color.split(",") : [];
-        this.size  = params.size ? params.size.split(",")  : [];
-        this.minPrice = params.minPrice ? params.minPrice : this.minPrice;
-        this.maxPrice = params.maxPrice ? params.maxPrice : this.maxPrice;
-        this.tags = [...this.brands, ...this.colors, ...this.size]; // All Tags Array
-        
-        this.category = params.category ? params.category : null;
-        this.sortBy = params.sortBy ? params.sortBy : 'ascending';
 
-        // Get Filtered Products..
-        this.productService.filterProducts(this.tags).subscribe(response => {
+      this.minPrice = params.minPrice ? params.minPrice : this.minPrice;
+      this.maxPrice = params.maxPrice ? params.maxPrice : this.maxPrice;
 
-          // All Products
-          this.all_products = response;
+      this.category = params.category ? params.category : null;
+      this.subcategory = params.subcategory ? params.subcategory : null;
+      this.sortBy = params.sortBy ? params.sortBy : 'ascending';
 
-          // Sorting Filter
-          this.all_products = this.productService.sortProducts(response, this.sortBy);
+      // Get Filtered Products..
+      this.productService.filterProducts(this.tags).subscribe(response => {
 
-          // Category Filter
-          if(params.category)
-            this.all_products = this.all_products.filter(item => item.type == this.category);
+        // All Products
+        this.all_products = response;
 
-          // Price Filter
-          this.all_products = this.all_products.filter(item => item.price >= this.minPrice && item.price <= this.maxPrice)
-    
-          this.addItems();
-          
-        })
+        // Sorting Filter
+        this.all_products = this.productService.sortProducts(response, this.sortBy);
+
+        // Category Filter
+        if (params.category)
+          console.log(params.category);
+        this.all_products = this.all_products.filter(item => item.type == this.category);
+
+        // Price Filter
+        this.all_products = this.all_products.filter(item => item.price >= this.minPrice && item.price <= this.maxPrice)
+
+        this.addItems();
+
       })
+    })
   }
+  //   this.route.queryParams.subscribe(params => {
+  //     this.products = [];
+  //     this.finished = false;
+
+  //     this.brands = params.brand ? params.brand.split(",") : [];
+  //     this.colors = params.color ? params.color.split(",") : [];
+  //     this.size = params.size ? params.size.split(",") : [];
+  //     this.minPrice = params.minPrice ? params.minPrice : this.minPrice;
+  //     this.maxPrice = params.maxPrice ? params.maxPrice : this.maxPrice;
+  //     this.tags = [...this.brands, ...this.colors, ...this.size]; // All Tags Array
+
+  //     this.category = params.category ? params.category : null;
+  //     this.sortBy = params.sortBy ? params.sortBy : 'ascending';
+
+  //     // Get Filtered Products..
+  //     this.productService.filterProducts(this.tags).subscribe(response => {
+
+  //       // All Products
+  //       this.all_products = response;
+
+  //       // Sorting Filter
+  //       this.all_products = this.productService.sortProducts(response, this.sortBy);
+
+  //       // Category Filter
+  //       if (params.category)
+  //         this.all_products = this.all_products.filter(item => item.type == this.category);
+
+  //       // Price Filter
+  //       this.all_products = this.all_products.filter(item => item.price >= this.minPrice && item.price <= this.maxPrice)
+
+  //       this.addItems();
+
+  //     })
+  //   })
+  // }
   produits = []
   ngOnInit(): void {
 
-    this.productService.getAll().subscribe(result=>{
+    this.productService.getAll().subscribe(result => {
       this.produits = result as []
 
-        console.log(this.produits);
-        
+      console.log(this.produits);
+
     }
-     )
+    )
+    if(!this.minPrice && !this.maxPrice)
+    {this.route.queryParams.subscribe(params => {
+      this.minPrice = params['minPrice']
+      console.log(this.minPrice);
+      this.maxPrice = params['maxPrice']
+      console.log(this.maxPrice);
+      
+    });}
+
+    
 
 
   }
 
   addItems() {
-    if(this.all_products.length == this.products.length){
+    if (this.all_products.length == this.products.length) {
       this.finished = true;
       return
     }
@@ -101,7 +145,7 @@ export class CollectionInfinitescrollComponent implements OnInit {
   // Append filter value to Url
   updateFilter(tags: any) {
     tags.page = null; // Reset Pagination
-    this.router.navigate([], { 
+    this.router.navigate([], {
       relativeTo: this.route,
       queryParams: tags,
       queryParamsHandling: 'merge', // preserve the existing query params in the route
@@ -114,9 +158,9 @@ export class CollectionInfinitescrollComponent implements OnInit {
 
   // SortBy Filter
   sortByFilter(value) {
-    this.router.navigate([], { 
+    this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { sortBy: value ? value : null},
+      queryParams: { sortBy: value ? value : null },
       queryParamsHandling: 'merge', // preserve the existing query params in the route
       skipLocationChange: false  // do trigger navigation
     }).finally(() => {
@@ -127,18 +171,18 @@ export class CollectionInfinitescrollComponent implements OnInit {
 
   // Remove Tag
   removeTag(tag) {
-  
+
     this.brands = this.brands.filter(val => val !== tag);
     this.colors = this.colors.filter(val => val !== tag);
     this.size = this.size.filter(val => val !== tag);
 
-    let params = { 
-      brand: this.brands.length ? this.brands.join(",") : null, 
+    let params = {
+      brand: this.brands.length ? this.brands.join(",") : null,
       color: this.colors.length ? this.colors.join(",") : null,
       size: this.size.length ? this.size.join(",") : null
     }
 
-    this.router.navigate([], { 
+    this.router.navigate([], {
       relativeTo: this.route,
       queryParams: params,
       queryParamsHandling: 'merge', // preserve the existing query params in the route
@@ -151,7 +195,7 @@ export class CollectionInfinitescrollComponent implements OnInit {
 
   // Clear Tags
   removeAllTags() {
-    this.router.navigate([], { 
+    this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {},
       skipLocationChange: false  // do trigger navigation
@@ -161,7 +205,7 @@ export class CollectionInfinitescrollComponent implements OnInit {
     });
   }
 
-  
+
 
   // Change Grid Layout
   updateGridLayout(value: string) {
@@ -171,7 +215,7 @@ export class CollectionInfinitescrollComponent implements OnInit {
   // Change Layout View
   updateLayoutView(value: string) {
     this.layoutView = value;
-    if(value == 'list-view')
+    if (value == 'list-view')
       this.grid = 'col-lg-12';
     else
       this.grid = 'col-xl-3 col-md-6';

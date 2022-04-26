@@ -91,7 +91,7 @@
                                     </app-grid>
                                     <div class="product-wrapper-grid" [ngClass]="layoutView">
                                         <div class="row">
-                                            <div class="col-grid-box" [ngClass]="grid" *ngFor="let product of produits">
+                                            <div class="col-grid-box" [ngClass]="grid" *ngFor="let product of produits | filter:category:subcategory:maxPrice:minPrice">
                                                 <div class="product-box">
                                                     <app-product-box-one 
                                                         [product]="product"
@@ -123,7 +123,7 @@
                                                     <div class="text-center col-sm-12">
                                                         <div class="infinite-scrolling mt-3 mb-3 d-inline-block">
                                                             <img src="assets/images/loader.gif" *ngIf="!finished && produits.length">
-                                                            <div class="loading-more active" *ngIf="finished && produits.length">No More Products</div>
+                                                            <div class="loading-more active" *ngIf="finished && produits.length">Plus de produits</div>
                                                         </div>
                                                     </div>
                                                 </div>

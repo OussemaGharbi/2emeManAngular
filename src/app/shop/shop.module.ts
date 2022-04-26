@@ -35,6 +35,7 @@ import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccessComponent } from './checkout/success/success.component';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { SuccessComponent } from './checkout/success/success.component';
     CartComponent,
     WishlistComponent,
     CheckoutComponent,
-    SuccessComponent
+    SuccessComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,

@@ -9,12 +9,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MyproductsComponent } from './components/myproducts/myproducts.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { AuthGuard } from 'src/authGuard';
 
 const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path:'register', component:RegisterComponent},
-  {path:'addproduct', component:AddProductComponent},
-  {path:'myproducts', component:MyproductsComponent},
+  {path:'addproduct', component:AddProductComponent, canActivate:[AuthGuard]},
+  {path:'myproducts', component:MyproductsComponent, canActivate:[AuthGuard]},
   {path:'product/:id', component:EditProductComponent},
   {
     path: '',

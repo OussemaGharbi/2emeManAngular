@@ -27,6 +27,8 @@ import { CommonModule } from '@angular/common';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { AuthInterceptor } from 'src/auth_interceptor';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { AuthGuard } from 'src/authGuard';
 
 
 // AoT requires an exported function for factories
@@ -45,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddProductComponent,
     CategoriesPipe,
     MyproductsComponent,
-    EditProductComponent
+    EditProductComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -75,7 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     AppRoutingModule
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

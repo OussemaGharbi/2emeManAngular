@@ -27,12 +27,12 @@
             </li> -->
             <li *ngIf="!isAuthentificated">
               <a data-lng="en" routerLink="/login">
-                Login
+                Connecter
               </a>
             </li>
             <li>
-              <a *ngIf="!isAuthentificated" data-lng="en" routerLink="/signup">
-                Sign Up
+              <a *ngIf="!isAuthentificated" data-lng="en" routerLink="/register">
+                S'inscrire
               </a>
             </li>
             <li class="onhover-dropdown mobile-account" *ngIf="isAuthentificated">
@@ -46,7 +46,7 @@
                 </li>
                 <li>
                   <a data-lng="es" (click)="logout()">
-                    Logout
+                    Déconnecter
                   </a>
                 </li>
               </ul>

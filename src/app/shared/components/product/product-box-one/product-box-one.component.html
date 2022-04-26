@@ -6,7 +6,7 @@
     </div>
     <div class="front">
       <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
-        <img [src]="product['images'][0] || 'assets/images/product/placeholder.jpg'" class="img-fluid lazy-loading" />
+        <img [src]="product['images'][0] || 'assets/images/product/placeholder.jpg'" class="img-fluid lazy-loading" style="height:300px;width:400px"/>
       </a>
     </div>
     <div class="back" *ngIf="onHowerChangeImage">

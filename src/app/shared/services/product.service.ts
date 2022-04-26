@@ -32,6 +32,7 @@ export class ProductService {
     ---------------  Product  -------------------
     ---------------------------------------------
   */
+ 
 
   //getall products
 public getAll(){
