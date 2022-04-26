@@ -241,8 +241,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ShopModule": () => (/* binding */ ShopModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/common */ 28267);
-/* harmony import */ var ngx_paypal__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ngx-paypal */ 29759);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/common */ 28267);
+/* harmony import */ var ngx_paypal__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ngx-paypal */ 29759);
 /* harmony import */ var ng5_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ng5-slider */ 38391);
 /* harmony import */ var ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-infinite-scroll */ 43621);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/shared.module */ 51382);
@@ -267,7 +267,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wishlist_wishlist_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./wishlist/wishlist.component */ 14537);
 /* harmony import */ var _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./checkout/checkout.component */ 9386);
 /* harmony import */ var _checkout_success_success_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./checkout/success/success.component */ 15130);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/core */ 14001);
+/* harmony import */ var _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../pipes/filter.pipe */ 1243);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/core */ 14001);
 
 
 
@@ -299,19 +300,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class ShopModule {
 }
 ShopModule.ɵfac = function ShopModule_Factory(t) { return new (t || ShopModule)(); };
-ShopModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵdefineNgModule"]({ type: ShopModule });
-ShopModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵdefineInjector"]({ imports: [[
-            _angular_common__WEBPACK_IMPORTED_MODULE_25__.CommonModule,
-            ngx_paypal__WEBPACK_IMPORTED_MODULE_26__.NgxPayPalModule,
+ShopModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_25__["ɵɵdefineNgModule"]({ type: ShopModule });
+ShopModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_25__["ɵɵdefineInjector"]({ imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_26__.CommonModule,
+            ngx_paypal__WEBPACK_IMPORTED_MODULE_27__.NgxPayPalModule,
             ng5_slider__WEBPACK_IMPORTED_MODULE_0__.Ng5SliderModule,
             ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_1__.InfiniteScrollModule,
             _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__.SharedModule,
             _shop_routing_module__WEBPACK_IMPORTED_MODULE_3__.ShopRoutingModule
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵsetNgModuleScope"](ShopModule, { declarations: [_product_sidebar_product_no_sidebar_product_no_sidebar_component__WEBPACK_IMPORTED_MODULE_4__.ProductNoSidebarComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_25__["ɵɵsetNgModuleScope"](ShopModule, { declarations: [_product_sidebar_product_no_sidebar_product_no_sidebar_component__WEBPACK_IMPORTED_MODULE_4__.ProductNoSidebarComponent,
         _product_three_column_three_column_component__WEBPACK_IMPORTED_MODULE_5__.ThreeColumnComponent,
         _product_bundle_product_bundle_product_component__WEBPACK_IMPORTED_MODULE_6__.BundleProductComponent,
         _product_image_outside_image_outside_component__WEBPACK_IMPORTED_MODULE_7__.ImageOutsideComponent,
@@ -330,8 +332,9 @@ ShopModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵ
         _cart_cart_component__WEBPACK_IMPORTED_MODULE_20__.CartComponent,
         _wishlist_wishlist_component__WEBPACK_IMPORTED_MODULE_21__.WishlistComponent,
         _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_22__.CheckoutComponent,
-        _checkout_success_success_component__WEBPACK_IMPORTED_MODULE_23__.SuccessComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_25__.CommonModule,
-        ngx_paypal__WEBPACK_IMPORTED_MODULE_26__.NgxPayPalModule,
+        _checkout_success_success_component__WEBPACK_IMPORTED_MODULE_23__.SuccessComponent,
+        _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__.FilterPipe], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_26__.CommonModule,
+        ngx_paypal__WEBPACK_IMPORTED_MODULE_27__.NgxPayPalModule,
         ng5_slider__WEBPACK_IMPORTED_MODULE_0__.Ng5SliderModule,
         ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_1__.InfiniteScrollModule,
         _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__.SharedModule,
